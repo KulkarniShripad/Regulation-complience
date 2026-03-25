@@ -1,0 +1,8 @@
+#ignore these files 
+
+.env
+graph_output/
+my_rules/
+lib/
+venv/
+
