@@ -1,9 +1,5 @@
 ### Installation
 
-### 1. Create and Setup Project
-mkdir rbi-rule-system
-cd rbi-rule-system
-
 # Create virtual environment
 python -m venv venv
 
@@ -14,16 +10,22 @@ source venv/bin/activate
 venv\Scripts\activat
 
 # Install dependencies
-pip install google-genai pdfplumber jsonschema python-dotenv networkx matplotlib numpy plotly pyvis lxml
+pip install pymupdf spacy tqdm colorama sentence-transformers qdrant-client pymongo
+
+cd backend
 
 # .env
 echo "GEMINI_API_KEY=your-actual-api-key-here" > .env
 
-# 1 extract rules from pdf 
-python rule_extractor.py path/to/circular.pdf --output-dir ./my_rules --circular-id "RBI/2024-25/012" --circular-date "2024-06-15"
+# 1 Generate data from circulars (vector db and mongo db) 
+python data_injestion.py
 
-# 2 Visualize rules on graph
-python graph_creator.py --rules-dir ./my_rules --output-dir ./graph_output --format all
+# 2 Run backend
+uvicorn main:app --reload --port 8000   
 
-# 3 Query engine
-python query_engine.py --rules-dir ./my_rules --graph-file ./graph_output/rule_graph.graphml
+# 3 Run Frontend
+cd ..
+cd frontend 
+
+npm install 
+npm start 
