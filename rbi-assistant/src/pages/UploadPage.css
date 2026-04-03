@@ -1,0 +1,295 @@
+.upload-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.upload-topbar {
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--navy-border);
+  background: var(--navy);
+  flex-shrink: 0;
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.page-subtitle {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.upload-content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 28px;
+  overflow-y: auto;
+}
+
+@media (max-width: 780px) {
+  .upload-content { grid-template-columns: 1fr; }
+}
+
+/* Drop zone */
+.drop-zone {
+  border: 2px dashed var(--navy-border);
+  border-radius: 14px;
+  padding: 36px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  margin-bottom: 20px;
+  background: var(--navy-card);
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: var(--gold-dim);
+  background: rgba(200,168,75,0.04);
+}
+
+.drop-zone.has-file {
+  border-style: solid;
+  border-color: var(--gold-dim);
+  cursor: default;
+}
+
+.drop-content {}
+
+.drop-icon { font-size: 40px; margin-bottom: 12px; }
+
+.drop-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.drop-link {
+  color: var(--gold-light);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.drop-hint {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.file-selected {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.file-icon { font-size: 32px; flex-shrink: 0; }
+
+.file-info { flex: 1; min-width: 0; }
+
+.file-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-size { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+.file-remove {
+  background: rgba(217,79,79,0.1);
+  border: 1px solid rgba(217,79,79,0.2);
+  color: var(--red);
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  font-size: 18px;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.file-remove:hover { background: rgba(217,79,79,0.2); }
+
+/* Form */
+.form-group { margin-bottom: 18px; }
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 7px;
+}
+
+.optional { font-weight: 400; color: var(--text-dim); text-transform: none; letter-spacing: 0; }
+
+.form-select, .form-input {
+  width: 100%;
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 9px;
+  color: var(--text);
+  font-size: 14px;
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: none;
+}
+
+.form-select:focus, .form-input:focus { border-color: var(--gold-dim); }
+.form-select option { background: var(--navy-dark); }
+.form-input::placeholder { color: var(--text-dim); }
+
+.form-hint {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 5px;
+}
+
+/* Error */
+.upload-error {
+  background: rgba(217,79,79,0.1);
+  border: 1px solid rgba(217,79,79,0.25);
+  border-radius: 9px;
+  color: var(--red);
+  font-size: 13px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+/* Upload button */
+.upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+  border: none;
+  border-radius: 10px;
+  color: var(--navy-dark);
+  font-size: 14px;
+  font-weight: 700;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.upload-btn:hover:not(:disabled) { transform: translateY(-1px); }
+.upload-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.btn-spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid var(--navy-dark);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* Result */
+.result-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.result-card--success {
+  border-color: rgba(26,158,110,0.3);
+  background: rgba(26,158,110,0.05);
+}
+
+.result-icon { font-size: 32px; margin-bottom: 10px; }
+
+.result-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--emerald);
+  margin-bottom: 20px;
+}
+
+.result-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.result-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.result-value {
+  font-size: 13px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-value--gold { color: var(--gold-light); font-weight: 700; font-size: 18px; }
+
+.reset-btn {
+  background: transparent;
+  border: 1px solid var(--navy-border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+  padding: 8px 16px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.reset-btn:hover { color: var(--text); border-color: var(--gold-dim); }
+
+/* Info card */
+.upload-info-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.info-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+}
+
+.info-steps { display: flex; flex-direction: column; gap: 18px; }
+
+.info-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.info-step-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+.info-step-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.info-step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
