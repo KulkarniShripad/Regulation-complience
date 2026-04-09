@@ -18,7 +18,7 @@ const FEATURES = [
     desc: 'Upload new RBI PDFs and the system extracts, classifies, and indexes rules automatically.',
   },
   {
-    icon: '✅',
+    icon: '',
     title: 'Compliance Checker',
     desc: 'Validate your operational data against current regulations and get detailed violation reports.',
   },
@@ -102,7 +102,7 @@ export default function LandingPage({ onStart }) {
           <span className="logo-emblem">₹</span>
           <span className="logo-text">RBI Circular Assistant</span>
         </div>
-        <div className="landing-badge">v2.0 — AI Powered</div>
+        <div className="landing-badge">v2.0 </div>
       </header>
 
       {/* Hero */}
@@ -124,7 +124,6 @@ export default function LandingPage({ onStart }) {
           </svg>
         </button>
 
-        <div className="hero-hint">Powered by Gemini · RAG · Qdrant · MongoDB</div>
       </main>
 
       {/* Feature cards */}

@@ -150,7 +150,7 @@ export default function UploadPage() {
         <div className="upload-result-col">
           {status === 'success' && result && (
             <div className="result-card result-card--success fade-in">
-              <div className="result-icon">✅</div>
+              <div className="result-icon"></div>
               <h3 className="result-title">Circular Ingested Successfully</h3>
               <div className="result-grid">
                 <div className="result-item">

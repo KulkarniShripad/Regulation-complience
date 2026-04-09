@@ -94,7 +94,7 @@ export default function Sidebar({ active, onNav }) {
             <span className="status-dot" />
             <span>Backend connected</span>
           </div>
-          <div className="sidebar-footer-line">v2.0 · Gemini RAG</div>
+          <div className="sidebar-footer-line">v2.0 </div>
         </div>
       )}
     </aside>
